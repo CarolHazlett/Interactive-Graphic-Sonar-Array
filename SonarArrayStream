@@ -1,4 +1,4 @@
-Enter file contents here#include <MINDSi.h>
+
 #include <Servo.h>
 #include <NewPing.h>
 
