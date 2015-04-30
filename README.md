@@ -1,2 +1,2 @@
 # Interactive-Graphic-Sonar-Array
-Utilizes the Arduino NewPing Libray and Processing to display the output of a sonar sensor array in a graphic format for human interpertation instead of streaming lines of numbers.
+Utilizes the Arduino NewPing Libray and Processing to display the output of a sonar sensor array in a graphic format for human interpertation instead of streaming lines of numbers.  The original purpose of this project was to make it easier to program the obstacle avoidance and obstacle finding behaviours in my Robomagellan robot.  I could drive the robot around and see how the sonar reacted to different things in a much easier way than trying to keep track of changing numbers.  I ended up learning many surprising things about sonar sensors from this project.
