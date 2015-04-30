@@ -1,0 +1,72 @@
+
+import processing.serial.*;
+PFont f;
+                            
+Serial port;                                             
+int diam1, diam2, diam3, diam4, diam5;                          
+boolean firstContact = false;
+                                         
+void setup() {
+ size(1500, 300);                     
+ stroke(#52B1F7);
+  smooth();
+  f = loadFont("LucidaConsole-18.vlw");
+ port = new Serial(this, "COM7", 115200);
+ port.write(65);
+}
+
+void draw() {
+ background(0);
+ fill(#FEFFEA);
+ ellipse(150, 150, diam1, diam1);
+ ellipse(450, 150, diam2, diam2);
+ ellipse(750, 150, diam3, diam3);
+ ellipse(1050, 150, diam4, diam4);
+ ellipse(1350, 150, diam5, diam5);
+ for (int i = 25; i < 1500; i += 25){
+    line(i, 0, i, 300);
+  }
+  for (int i = 25; i < 300; i += 25){
+    line(0, i, 1500, i);
+  }
+  textFont(f,18);
+  fill(#18EA47);
+  text("150", 0, 30);
+  text("100", 0, 57);
+  text("75", 0, 82);
+  text("50", 0,107);
+  text("25", 2, 132);
+  text("0", 8, 157);
+  text("25", 2, 182);
+  text("50", 0, 207);
+  text("75", 0,232);
+  text("100", 0, 257);
+  text("150", 0, 282);
+  text("150", 1468,30);
+  text("100", 1468, 57);
+  text("75", 1475, 82);
+  text("50", 1475, 107);
+  text("25", 1475, 132);
+  text("0", 1484, 157);
+  text("25", 1475, 182);
+  text("50", 1475, 207);
+  text("75", 1475,232);
+  text("100", 1468, 257);
+  text("150", 1468, 282);
+}
+
+void serialEvent(Serial port) {
+ String input = port.readStringUntil('*');
+ if (input != null) {
+   println(input); 
+   int[] vals = int(splitTokens(input, ",*")); 
+   diam1 = vals[0];
+   diam2 = vals[1];
+   diam3 = vals[2];
+   diam4 = vals[3];
+   diam5 = vals[4];
+  }
+   port.write(65); 
+}
+
+
